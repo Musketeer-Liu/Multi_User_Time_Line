@@ -1,70 +1,59 @@
-<!DOCTYPE html>
+{% extends "base.html" %}
 
-<html>
-  <head>
-    <title>Sign Up</title>
-    <style type="text/css">
-      .label {text-align: right}
-      .error {color: red}
-    </style>
+{% block content %}
+<h2>Sign Up</h2>
 
-  </head>
-
-  <body>
-    <h2>Signup</h2>
-    <form method="post">
-      <table>
+<form method="post">
+    <table>
         <tr>
-          <td class="label">
-            Username
-          </td>
-          <td>
-            <input type="text" name="username" value="{{username}}">
-          </td>
-          <td class="error">
-            {{error_username}}
-          </td>
+            <td class="label">
+                username
+            </td>
+            <td>
+                <input type="text" name="username" value="{{username}}">
+            </td>
+            <td class="error">
+                {{error_username}}
+            </td>
         </tr>
 
         <tr>
-          <td class="label">
-            Password
-          </td>
-          <td>
-            <input type="password" name="password" value="">
-          </td>
-          <td class="error">
-            {{error_password}}
-          </td>
+            <td class="label">
+                password
+            </td>
+            <td>
+                <input type="password" name="password" value="">
+            </td>
+            <td class="error">
+                {{error_password}}
+            </td>
         </tr>
 
         <tr>
-          <td class="label">
-            Verify Password
-          </td>
-          <td>
-            <input type="password" name="verify" value="">
-          </td>
-          <td class="error">
-            {{error_verify}}
-          </td>
+            <td class="label">
+                verify
+            </td>
+            <td>
+                <input type="password" name="verify" value="">
+            </td>
+            <td class="error">
+                {{error_verify}}
+            </td>
         </tr>
 
         <tr>
-          <td class="label">
-            Email (optional)
-          </td>
-          <td>
-            <input type="text" name="email" value="{{email}}">
-          </td>
-          <td class="error">
-            {{error_email}}
-          </td>
+            <td class="label">
+                email
+            </td>
+            <td>
+                <input type="text" name="email" value="{{email}}">
+            </td>
+            <td class="error">
+                {{error_email}}
+            </td>
         </tr>
-      </table>
+    </table>
 
-      <input type="submit">
-    </form>
-  </body>
-
-</html>
+    <input type="submit" name="Singup">
+</form>
+{% endblock %}

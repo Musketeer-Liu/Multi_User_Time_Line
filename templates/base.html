@@ -1,32 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <link rel="stylesheet" href="/static/main.css">
-  <meta charset="UTF-8">
-  <title>Musketeer Blog</title>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="/static/main.css">
+        <title>Musketeer Blog</title>
+    </head>
 
-<body>
-  <a href="/blog" class="main-title">
-    Musketeer Blog
-  </a>
+    <body>
+        <header>
+            {% if user %}
+            <a href="/blog/newpost">New Post</a>
+            <a href="/logout">Log Out</a>
+            {% else %}
+            <a href="/login">Log In</a>
+            <a href="/signup">Sign Up</a>
+            {% endif %}
+        </header>
 
-  <div class="login-area">
-    {% if user %}
-      <a href="/blog/newpost">New Post</a>
-      <a href="/logout">Log Out</a>
-    {% else %}
-      <a class="login-link" href="/login">Log In</a>
-      <a class="login-link" href="/signup">Sign Up</a>
-    {% endif %}
-  </div>
+        <a href="/blog" class="main-title">
+            Multi User Blog
+        </a>
 
-  <div id="content">
-    {% block content %}
-    {% endblock %}
-  </div>
-</body>
-
+        <div id="content">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </body>
 </html>
 

@@ -1,5 +1,42 @@
 {% extends "base.html" %}
 
 {% block content %}
-  {{post.render() | safe}}
+    {{post.render() | safe}}
+
+    {% if user and post.user.name != user.name %}
+    <div class="like">
+        {% if liked == True %}
+        <form action="/blog/{{post.key().id()}}/like" method="post">
+            <button type="submit" name="like_button" value="unlike">
+                Unlike
+            </button>
+        </form>
+        {% endif %}
+
+        {% if liked == False %}
+        <form action="/blog/{{post.key().id()}}/like" method="post">
+            <button type="submit" name="like_button" value="like">
+                Like
+            </button>
+        </form>
+        {% endif %}
+    </div>
+
+    {% if user %}
+    <div class="add_comment">
+        <form action="/blog/{{post.key().id()}}/comment/newcomment" method="get">
+            <button type="submit">
+                Comment
+            </button>
+        </form>
+    </div>
+    {% endif %}
+
+    <div class="comments">
+        <h3>Comments</h3>
+        <br>
+        {% for comment in comments %}
+        {{comment.render(post, user) | safe}}
+        {% endfor %}
+    </div>
 {% endblock %}

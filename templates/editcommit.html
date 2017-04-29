@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Edit Comment</h2>
+
+<form method="post">
+    <label>
+        <textarea name="comment">
+            {{comment}}
+        </textarea>
+    </label>
+
+    <div class="error">
+            {{error}}
+    </div>
+
+    <input type="submit" value="Update">
+</form>
+
+<form action="/blog/{{post_id}}" method="get">
+    <button type="submit">
+        Cancel
+    </button>
+</form>
+{% endblock %}
