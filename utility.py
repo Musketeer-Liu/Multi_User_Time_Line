@@ -61,18 +61,17 @@ def like_key(name='default'):
 
 
 # Validate signup
-USERNAME_RE = re.compile("^[a-zA-Z0-9_-]{3, 20}$")
-PASSWORD_RE = re.compile("^.{3, 20}$")
-EMAIL_RE = re.compile("^[\S]+@[\S]+.[\S]+$")
-
+USERNAME_RE = re.compile(r"^[a-zA-Z0-9_-]{3,20}$")
 def valid_username(username):
     return username and USERNAME_RE.match(username)
 
+PASSWORD_RE = re.compile(r"^.{3,20}$")
 def valid_password(password):
     return password and PASSWORD_RE.match(password)
 
+EMAIL_RE = re.compile(r"^[\S]+@[\S]+\.[\S]+$")
 def valid_email(email):
-    return email and EMAIL_RE(email)
+    return email and EMAIL_RE.match(email)
 
 
 # Validation decorators

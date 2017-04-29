@@ -8,7 +8,7 @@ class User(db.Model):
 
     @classmethod
     def by_id(cls, uid):
-        return User.get_by_id(uid, parent=users_key())
+        return User.get_by_id(uid, parent=user_key())
 
 
     @classmethod
@@ -16,12 +16,12 @@ class User(db.Model):
         return User.all().filter('name =', name).get()
 
     @classmethod
-    def register(cls, name, pw, emial=None):
+    def register(cls, name, pw, email=None):
         pw_hash = make_pw_hash(name, pw)
         return User(name=name,
                     pw_hash=pw_hash,
                     email=email,
-                    parent=users_key())
+                    parent=user_key())
 
     @classmethod
     def login(cls, name, pw):

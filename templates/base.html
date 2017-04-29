@@ -8,19 +8,19 @@
     </head>
 
     <body>
+        <a href="/blog" class="main_title">
+            Musketeer Blog
+        </a>
+
         <header>
             {% if user %}
             <a href="/blog/newpost">New Post</a>
-            <a href="/logout">Log Out</a>
+            <a href="/logout">Logout</a>
             {% else %}
-            <a href="/login">Log In</a>
+            <a href="/login">Login</a>
             <a href="/signup">Sign Up</a>
             {% endif %}
         </header>
-
-        <a href="/blog" class="main-title">
-            Musketeer Blog
-        </a>
 
         <div id="content">
             {% block content %}

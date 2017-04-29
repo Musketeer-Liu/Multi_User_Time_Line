@@ -24,10 +24,10 @@ class Comment(db.Model):
 
     @classmethod
     def create(cls, content, user, post):
-        return Comment(content,
+        return Comment(content=content,
                        user=user,
                        post=post,
-                       parent=comment_key)
+                       parent=comment_key())
 
     @classmethod
     def by_id(cls, comment_id):

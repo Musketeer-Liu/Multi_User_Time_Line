@@ -12,14 +12,14 @@ class NewComment(BlogHandler):
     @user_logged_in
     @post_exists
     def post(self, post):
-        connect = self.request.get('comment')
+        content = self.request.get('comment')
         if content:
             comment = Comment.create(content, self.user, post)
             comment.put()
             time.sleep(0.1)
             self.redirect('/blog/' + str(post.key().id()))
         else:
-            error = "Please complete content of commnent!"
+            error = "Please complete content of comment!"
             self.render('newcomment.html',
                         comment=content,
                         error=error)

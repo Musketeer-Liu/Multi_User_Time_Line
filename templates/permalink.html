@@ -21,6 +21,7 @@
         </form>
         {% endif %}
     </div>
+    {% endif %}
 
     {% if user and post.user.name == user.name %}
     <div class="manage post">
@@ -35,8 +36,8 @@
                 Delete
             </button>
         </form>
-        {% endif %}
     </div>
+    {% endif %}
 
     {% if user %}
     <div class="add_comment">

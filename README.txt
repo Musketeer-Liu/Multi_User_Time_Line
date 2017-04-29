@@ -1,7 +1,8 @@
 Musketeer Blog
 
 Describe:
-A multi user blog with Sign in, Post blog along with Like and Comment Features
+A multi user blog with Sign in, Post blog Features
+Experiment on Comment and Like Features
 
 Setup:
 1. Install google app engine
