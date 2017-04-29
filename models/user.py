@@ -1,5 +1,5 @@
 from google.appengine.ext import db
-from utility import make_pw_hash, valid_pw, users_key
+from utility import make_pw_hash, valid_pw, user_key
 
 class User(db.Model):
     name = db.StringProperty(required=True)
