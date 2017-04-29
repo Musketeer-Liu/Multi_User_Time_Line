@@ -11,7 +11,7 @@ class BlogHandler(webapp2.RequestHandler):
 
     def render(self, template, **kw):
         kw['user'] = self.user
-        self.write(self.render_srt(template, **kw))
+        self.write(self.render_str(template, **kw))
 
     def set_secure_cookies(self, name, val):
         cookie_val = make_secure_val(val)
