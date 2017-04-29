@@ -71,7 +71,7 @@ class EditPost(BlogHandler):
                         post_id=post.key().id(),
                         error=error)
 
-class DeletePsot(BlogHandler):
+class DeletePost(BlogHandler):
     @user_logged_in
     @post_exists
     @user_owns_post
