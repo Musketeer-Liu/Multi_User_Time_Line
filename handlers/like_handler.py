@@ -1,8 +1,7 @@
 import time
 from blog_handler import BlogHandler
 from models import Like
-from utility import user_logged_in,
-                    post_exists
+from utility import user_logged_in, post_exists
 
 class LikeButton(BlogHandler):
     @user_logged_in

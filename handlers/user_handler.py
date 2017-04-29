@@ -1,8 +1,6 @@
 from blog_handler import BlogHandler
 from models import User
-from utility import valid_email,
-                    valid_password,
-                    valid_username
+from utility import valid_email, valid_password, valid_username
 
 class Signup(BlogHandler):
     def get(self):

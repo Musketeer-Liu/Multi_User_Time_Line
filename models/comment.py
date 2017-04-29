@@ -1,8 +1,7 @@
 from google.appengine.ext import db
 from user import User
 from post import Post
-from utility import comment_key,
-                    render_str
+from utility import comment_key, render_str
 
 class Comment(db.Model)
     user = db.ReferenceProperty(User,

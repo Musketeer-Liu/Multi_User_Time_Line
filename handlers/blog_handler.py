@@ -1,8 +1,6 @@
 import webapp2
 from models import User
-from utility import render_str,
-                    make_secure_val,
-                    check_secure_val
+from utility import render_str, make_secure_val, check_secure_val
 
 class BlogHandler(webapp2.RequestHandler):
     def write(self, *a, **kw):

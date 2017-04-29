@@ -1,10 +1,7 @@
 import time
 from blog_handler import BlogHandler
 from models import Comment
-from utility import user_logged_in,
-                    comment_exists,
-                    user_owns_comment,
-                    post_exists
+from utility import user_logged_in, comment_exists, user_owns_comment, post_exists
 
 class NewComment(BlogHandler):
     @user_logged_in

@@ -1,9 +1,7 @@
 import time
 from blog_handler import BlogHandler
 from models import Post
-from utility import user_logged_in,
-                    post_exists,
-                    user_owns_post
+from utility import user_logged_in, post_exists, user_owns_post
 
 class BlogFront(BlogHandler):
     def get(self):
