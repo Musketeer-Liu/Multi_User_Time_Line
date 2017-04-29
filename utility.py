@@ -82,7 +82,8 @@ def user_logged_in(function):
         print kw
         if self.user:
             return function(self, *a, **kw)
-        else self.redirect('/login')
+        else:
+            self.redirect('/login')
     return wrapper
 
 def post_exists(function):
