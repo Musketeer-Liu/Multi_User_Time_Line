@@ -4,7 +4,7 @@ from utility import valid_email,
                     valid_password,
                     valid_username
 
-class Singup(BlogHandler):
+class Signup(BlogHandler):
     def get(self):
         self.render("signup.html")
 
