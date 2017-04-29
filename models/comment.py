@@ -3,7 +3,7 @@ from user import User
 from post import Post
 from utility import comment_key, render_str
 
-class Comment(db.Model)
+class Comment(db.Model):
     user = db.ReferenceProperty(User,
                                 required=True,
                                 collection_name='user_comments')
