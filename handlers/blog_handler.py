@@ -4,7 +4,7 @@ from utility import render_str, make_secure_val, check_secure_val
 
 class BlogHandler(webapp2.RequestHandler):
     def write(self, *a, **kw):
-        self.resposnse.out.write(*a, **kw)
+        self.response.out.write(*a, **kw)
 
     def render_str(self, template, **params):
         return render_str(template, **params)
