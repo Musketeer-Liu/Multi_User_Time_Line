@@ -7,14 +7,24 @@ body {
     color: #333;
 }
 
+title {
+    font-family: "Lato", sans-serif;
+    color: #747704;
+    font-weight: 300;
+    font-size: 60px;
+}
+}
+
 h2 {
     font-size: 36px;
     font-weight: bold;
     margin-bottom: 20px;
 }
 
-.error {
-    color: red;
+h3 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
 }
 
 label {
@@ -26,13 +36,6 @@ label + label {
     margin-top: 20px;
 }
 
-input[type=text] {
-    width: 500px;
-    font-size: 20px;
-    padding: 2px;
-    font-family: monospace;
-}
-
 textarea {
     width: 500px;
     height: 400px;
@@ -40,11 +43,22 @@ textarea {
     font-family: monospace;
 }
 
+input[type=text] {
+    width: 500px;
+    font-size: 20px;
+    padding: 2px;
+    font-family: monospace;
+}
+
 input[type=submit] {
     font-size: 24px;
 }
 
-.main-title {
+.error {
+    color: red;
+}
+
+.main_title {
     display: block;
     color: #222;
     font-size: 40px;
@@ -58,31 +72,31 @@ input[type=submit] {
     margin-top: 15px;
 }
 
-.post-heading {
+.post_heading {
     position: relative;
     border-bottom: 3px solid #666;
 }
 
-.post-title {
+.post_title {
     font-size: 24px;
     font-weight: bold;
 }
 
-.post-author {
+.post_author {
     position: absolute;
     right: 200px;
     bottom: 0;
     color: #718f99;
 }
 
-.post-date {
+.post_date {
     position: absolute;
     right: 0;
     bottom: 0;
     color: #999;
 }
 
-.post-content {
+.post_content {
     margin-top: 5px;
 }
 
@@ -90,7 +104,7 @@ input[type=submit] {
     text-align: right
 }
 
-.login-area {
+.login_area {
     font-size: 13px;
     color: gray;
     position: absolute;
@@ -98,15 +112,15 @@ input[type=submit] {
     right: 10px;
 }
 
-.login-link {
+.login_link {
     color: gray;
     text-decoration: none;
 }
 
-.login-link:visited {
+.login_link:visited {
     color: gray;
 }
 
-.login-link:hover {
+.login_link:hover {
     text-decoration: underline;
 }

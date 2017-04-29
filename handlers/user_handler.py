@@ -27,9 +27,10 @@ class Singup(BlogHandler):
                 passed = False
 
         if not valid_username(self.password):
-            params["error_password"] = "Two passwords not same!"
+            params["error_password"] = "Invalid password!"
+            passed = False
         elif self.password != self.verify:
-                params["error_email"] = "Invalid email!"
+                params["error_verifyl"] = "Passwords not match!"
                 passed = False
 
         if self.email and not valid_email(self.email):
@@ -65,7 +66,7 @@ class Login(BlogHandler):
             self.redirect('/welcome')
         else:
             self.render("login.html",
-                        error="Username and password don't match")
+                        error="Username and password not match")
 
 class Logout(BlogHandler):
     def get(self):

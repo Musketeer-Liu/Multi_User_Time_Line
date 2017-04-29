@@ -15,5 +15,5 @@ class LikeButton(BlogHandler):
             like.put()
         elif like_button =='unlike' and like:
             like.delete()
-        time.sleep(0.5)
+        time.sleep(0.1)
         self.redirect('/blog/' + str(post.key().id()))

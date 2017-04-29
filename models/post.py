@@ -17,8 +17,7 @@ class Post(db.Model):
 
     @classmethod
     def by_limit(cls, limit):
-        return db.GqlQuery("select * from Post order by created \
-            desc limit {}".format(limit))
+        return db.GqlQuery("select * from Post order by created desc limit {}".format(limit))
 
     @classmethod
     def by_id(cls, post_id):

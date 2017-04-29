@@ -4,25 +4,25 @@ from models import Comment
 from utility import user_logged_in,
                     comment_exists,
                     user_owns_comment,
-                    post_exits
+                    post_exists
 
 class NewComment(BlogHandler):
     @user_logged_in
-    @post_exits
+    @post_exists
     def get(self, post):
         self.render('newcomment.html')
 
     @user_logged_in
-    @post_exits
+    @post_exists
     def post(self, post):
         connect = self.request.get('comment')
         if content:
             comment = Comment.create(content, self.user, post)
             comment.put()
-            time.sleep(0.5)
+            time.sleep(0.1)
             self.redirect('/blog/' + str(post.key().id()))
         else:
-            error = "Complete content of commnent, please!"
+            error = "Please complete content of commnent!"
             self.render('newcomment.html',
                         comment=content,
                         error=error)
@@ -44,10 +44,10 @@ class EditComment(BlogHandler):
         if content:
             comment.content = content
             comment.put()
-            time.sleep(0.5)
+            time.sleep(0.1)
             self.redirect('/blog' + str(post.key().id()))
         else:
-            error = "Complete content of comment, please!"
+            error = "Please complete content of comment!"
             self.render('editcomment.html',
                         comment=connect,
                         post=post.key().id(),
@@ -59,5 +59,5 @@ class DeleteComment(BlogHandler):
     @user_owns_comment
     def post(self, post, comment):
         comment.delete()
-        time.sleep(0.5)
+        time.sleep(0.1)
         self.redirect('/blog/' + srt(post.key().id()))

@@ -22,6 +22,22 @@
         {% endif %}
     </div>
 
+    {% if user and post.user.name == user.name %}
+    <div class="manage post">
+        <form action="/blog/{{post.key().id()}}/edit" method="post">
+            <button type="submit">
+                Edit
+            </button>
+        </form>
+
+        <form action="/blog/{{post.key().id()}}/delete" method="post">
+            <button type="submit" name="like_button" value="like">
+                Delete
+            </button>
+        </form>
+        {% endif %}
+    </div>
+
     {% if user %}
     <div class="add_comment">
         <form action="/blog/{{post.key().id()}}/comment/newcomment" method="get">

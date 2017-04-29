@@ -1,17 +1,19 @@
 <div class="post">
-  <div class="post_heading">
-    <div class="post_title">
-      <a href="/blog/{{p.id}}">
-        {{p.subject}}
-      </a>
+    <div class="post-heading">
+        <a class="post-title" href="/blog/{{p.key().id()}}">
+            {{p.subject}}
+        </a>
+
+        <div class="post-author">
+            {{p.user.name}}
+        </div>
+
+        <div class="post-date">
+            {{p.created.strftime("%b %d, %Y")}}
+        </div>
     </div>
 
-    <div class="post_date">
-      {{p.created.strftime("%b %d, %Y")}}
+    <div class="post-content">
+        {{p._render_text | safe}}
     </div>
-  </div>
-
-  <div class="post_content">
-    {{p._render_text | safe}}
-  </div>
 </div>

@@ -6,19 +6,20 @@ from utility import user_logged_in,
                     user_owns_post
 
 class BlogFront(BlogHandler):
-    posts = Post.by_limit(20)
-    self.render("front.html", posts=posts)
+    def get(self):
+        posts = Post.by_limit(20)
+        self.render("front.html", posts=posts)
 
 class PostPage(BlogHandler):
     @post_exists
     def get(self, post):
-        liked = self.user and self.user.user.likes.filter("post =", post).count()
-    comments = post.post_comments.order('-created')
-    self.render("permalink.html",
-                post = post,
-                user=self.user,
-                liked=liked,
-                comments=comments)
+        liked = self.user and self.user.user_likes.filter("post =", post).count() > 0
+        comments = post.post_comments.order('-created')
+        self.render("permalink.html",
+                    post = post,
+                    user=self.user,
+                    liked=liked,
+                    comments=comments)
 
 class NewPost(BlogHandler):
     @user_logged_in
@@ -32,9 +33,9 @@ class NewPost(BlogHandler):
         if subject and content:
             post = Post.create(subject, content, self.user)
             post.put()
-            self.redirect('/blog' + str(post.key().id()))
+            self.redirect('/blog/' + str(post.key().id()))
         else:
-            error = "Complete subject or content please!"
+            error = "Please complete subject or content!"
             self.render("newpost.html",
                         subject=subject,
                         content=content,
@@ -61,9 +62,9 @@ class EditPost(BlogHandler):
             post.subject = subject
             post.content = content
             post.put()
-            self.redirect('/blog' + str(post.key().id()))
+            self.redirect('/blog/' + str(post.key().id()))
         else:
-            error = "Complete subject or content please!"
+            error = "Please complete subject or content!"
             self.render("editpost.html",
                         subject=subject,
                         content=content,
@@ -76,5 +77,5 @@ class DeletePsot(BlogHandler):
     @user_owns_post
     def post(self, post):
         post.delete()
-        time.sleep(0.5)
+        time.sleep(0.1)
         self.redirect('/blog')
