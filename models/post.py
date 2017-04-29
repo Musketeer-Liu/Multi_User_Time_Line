@@ -24,7 +24,7 @@ class Post(db.Model):
         return Post.get_by_id(post_id, parent=blog_key())
 
     @classmethod
-    def create(cls, subject, content user):
+    def create(cls, subject, content, user):
         return Post(subject=subject,
                     content=content,
                     user=user,
