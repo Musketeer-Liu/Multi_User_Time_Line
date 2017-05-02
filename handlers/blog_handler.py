@@ -13,7 +13,7 @@ class BlogHandler(webapp2.RequestHandler):
         kw['user'] = self.user
         self.write(self.render_str(template, **kw))
 
-    def set_secure_cookies(self, name, val):
+    def set_secure_cookie(self, name, val):
         cookie_val = make_secure_val(val)
         self.response.headers.add_header('Set-Cookie',
                                          '%s=%s; Path=/' %(name, cookie_val))

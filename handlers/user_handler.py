@@ -36,7 +36,7 @@ class Signup(BlogHandler):
             passed = False
 
         if passed:
-            user = User.register(self.username, self.password, self.email)
+            user = User.signup(self.username, self.password, self.email)
             user.put()
             self.login(user)
             self.redirect('/welcome')
@@ -69,4 +69,4 @@ class Login(BlogHandler):
 class Logout(BlogHandler):
     def get(self):
         self.logout()
-        self.redirect('/blog')
+        self.redirect('/signup')
