@@ -26,6 +26,6 @@ class User(db.Model):
     @classmethod
     def login(cls, name, pw):
         user = cls.by_name(name)
-        if user and valid_pw(name, pw, u.pw_hash):
+        if user and valid_pw(name, pw, user.pw_hash):
             return user
         return None
