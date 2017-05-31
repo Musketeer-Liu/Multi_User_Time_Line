@@ -12,5 +12,5 @@ class Like(db.Model):
                                 collection_name='post_likes')
 
     @classmethod
-    def creates(cls, user, post):
+    def create(cls, user, post):
         return Like(user=user, post=post, parent=like_key())

@@ -8,7 +8,7 @@ class LikeButton(BlogHandler):
     @post_exists
     def post(self, post):
         like_button = self.request.get('like_button')
-        like = self.user.user_likes.filter("post=", post).get()
+        like = self.user.user_likes.filter("post =", post).get()
         if like_button == 'like' and not like:
             like = Like.create(self.user, post)
             like.put()
